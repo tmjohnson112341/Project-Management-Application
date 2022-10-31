@@ -16,4 +16,6 @@ public class Company {
 	@GeneratedValue
 	private long id;
 
+	private String description;
+
 }

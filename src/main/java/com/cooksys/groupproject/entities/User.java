@@ -1,5 +1,6 @@
 package com.cooksys.groupproject.entities;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,5 +16,26 @@ public class User {
 	@Id
 	@GeneratedValue
 	private long id;
+
+	@Embedded
+	private Credentials credentials;
+
+	private String first;
+
+	private String last;
+
+	private String email;
+
+	private String phone;
+
+	private boolean active;
+
+	private boolean admin;
+
+	private String status;
+
+	private Long team;
+
+	private Long company;
 
 }

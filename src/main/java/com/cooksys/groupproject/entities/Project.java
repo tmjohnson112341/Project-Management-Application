@@ -16,4 +16,12 @@ public class Project {
 	@GeneratedValue
 	private long id;
 
+	private String name;
+
+	private String description;
+
+	private boolean active;
+
+	private Long team;
+
 }

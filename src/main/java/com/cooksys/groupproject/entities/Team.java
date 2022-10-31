@@ -16,4 +16,10 @@ public class Team {
 	@GeneratedValue
 	private long id;
 
+	private String name;
+
+	private String description;
+
+	private Long company;
+
 }

@@ -28,9 +28,9 @@ public class User {
 	@Embedded
 	private Credentials credentials;
 
-	private String first;
+	private String firstName;
 
-	private String last;
+	private String lastName;
 
 	private String email;
 

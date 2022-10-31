@@ -1,14 +1,11 @@
-package com.cooksys.groupproject.entities;
+package com.cooksys.groupproject.dtos;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
 @Data
 @NoArgsConstructor
-public class Profile {
+public class ProfileDto {
 
     private String firstName;
 

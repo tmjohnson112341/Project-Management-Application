@@ -18,6 +18,7 @@ public class UserResponseDto {
 
     private String status;
 
-    private TeamDto team;
+    private TeamRequestDto teamRequestDto;
 
-    private CompanyDto company;
+    private CompanyRequestDto companyRequestDto;
+}

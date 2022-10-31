@@ -1,23 +1,40 @@
 package com.cooksys.groupproject.entities;
 
-import javax.persistence.Embedded;
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Profile;
+
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Announcements {
 	
 	@Id
 	@GeneratedValue
 	private long id;
-
-
+	
+	@CreationTimestamp
+	private Date date; 
+	
+	private String title;
+	
+	private String message;
+	
+	@ManyToOne
+	private Company company;
+	
+	@ManyToOne
+	private User user;
 
 }

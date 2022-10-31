@@ -3,13 +3,16 @@ package com.cooksys.groupproject.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Project {
 	
 	@Id
@@ -21,7 +24,8 @@ public class Project {
 	private String description;
 
 	private boolean active;
-
-	private Long team;
+	
+	@ManyToOne
+	private Team team;
 
 }

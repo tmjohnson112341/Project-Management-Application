@@ -10,7 +10,7 @@ import java.sql.Timestamp;
     public class AnnouncementRequestDto {
 
         private Long id;
-
+        
         private Timestamp date;
 
         private String title;

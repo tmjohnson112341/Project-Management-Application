@@ -8,9 +8,9 @@ import java.sql.Timestamp;
 @Data
 @NoArgsConstructor
 public class AnnouncementResponseDto {
-
-    private Timestamp posted;
-
+	
+	private Timestamp date;
+	
     private String title;
 
     private String message;

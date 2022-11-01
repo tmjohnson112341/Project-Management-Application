@@ -1,6 +1,6 @@
 package com.cooksys.groupproject.entities;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +25,7 @@ public class Announcements {
 	private long id;
 	
 	@CreationTimestamp
-	private Date date; 
+    private Timestamp date; 
 	
 	private String title;
 	

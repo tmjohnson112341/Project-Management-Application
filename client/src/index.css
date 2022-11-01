@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar {
+  border-bottom: 2px solid;
+  border-color: #DEB992;
+}
+
+.login {
+  position: relative;
+  background-color: #051622;
+  height: 300px;
+  width: 500px;
+  border: 5px solid;
+  border-color: #DEB992;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto; 
+  float: none; 
+  margin-top: 100px;
+}
+
+.header {
+  text-align: center;
+  color: #1BA098;
+  margin: 75px auto;
+}

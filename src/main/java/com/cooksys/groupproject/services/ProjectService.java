@@ -10,7 +10,7 @@ public interface ProjectService {
 
     ProjectResponseDto getProjectById(Long id);
 
-    List<ProjectResponseDto> getProjectsByTeamId(Long teamId);
+    List<ProjectResponseDto> getProjectsByTeamId(Long id);
 
     List<ProjectResponseDto> getProjectsByCompanyId(Long id);
 }

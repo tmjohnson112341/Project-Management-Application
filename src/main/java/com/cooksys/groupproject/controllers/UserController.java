@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UserController {
 
-    private final UserService userService;
+    private UserService userService;
 
     @PostMapping("/validate")
     public UserResponseDto getUser(@RequestBody CredentialsDto credentialsDto) {

@@ -49,6 +49,7 @@ public class User {
 	private Company company;
 	
 	@OneToMany(mappedBy="user")
-	private List<Announcements> announcements; 
+	private List<Announcements> announcements;
+
 
 }

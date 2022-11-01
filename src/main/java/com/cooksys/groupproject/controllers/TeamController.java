@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/team")
 public class TeamController {
 
-    private final TeamService teamService;
+    private TeamService teamService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)

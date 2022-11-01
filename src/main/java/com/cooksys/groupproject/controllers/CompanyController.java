@@ -17,7 +17,7 @@ import java.util.List;
 
 public class CompanyController {
 
-    private final CompanyService companyService;
+    private CompanyService companyService;
 
     @GetMapping
     public List<CompanyRequestDto> getAllCompanies() {

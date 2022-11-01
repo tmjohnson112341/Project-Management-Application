@@ -57,18 +57,17 @@ public class DatabaseSeeder implements CommandLineRunner{
         Credentials user2Cred = new Credentials();
         user2Cred.setUsername("mario");
         user2Cred.setPassword("password");
-        user1.setStatus("Joined");
-
-
+        
         User user2 = new User();
         user2.setCredentials(user2Cred);
         user2.setFirstName("Mario");
         user2.setLastName("Mario");
         user2.setEmail("mario@email.com");
         user2.setPhone("234-567-8901");
-        user1.setActive(true);
-        user1.setAdmin(false);
-        
+        user2.setActive(true);
+        user2.setAdmin(false);
+        user2.setStatus("Joined");
+
         
         // --- User 3 ---
         Credentials user3Cred = new Credentials();
@@ -82,9 +81,9 @@ public class DatabaseSeeder implements CommandLineRunner{
         user3.setLastName("Mario");
         user3.setEmail("luigi@email.com");
         user3.setPhone("345-678-9012");
-        user1.setActive(true);
-        user1.setAdmin(false);
-        user1.setStatus("Pending");
+        user3.setActive(true);
+        user3.setAdmin(false);
+        user3.setStatus("Pending");
 
 
   
@@ -101,9 +100,9 @@ public class DatabaseSeeder implements CommandLineRunner{
         user4.setLastName("Drake");
         user4.setEmail("nathan@email.com");
         user4.setPhone("456-789-0023");
-        user1.setActive(true);
-        user1.setAdmin(false);
-        user1.setStatus("Joined");
+        user4.setActive(true);
+        user4.setAdmin(false);
+        user4.setStatus("Joined");
 
         // --- User 5 ---
         // Credentials
@@ -117,9 +116,9 @@ public class DatabaseSeeder implements CommandLineRunner{
         user5.setLastName("Tarnished");
         user5.setEmail("willibecometheeldenlord@email.com");
         user5.setPhone("567-890-0034");
-        user1.setActive(false);
-        user1.setAdmin(false);
-        user1.setStatus("Pending");
+        user5.setActive(false);
+        user5.setAdmin(false);
+        user5.setStatus("Pending");
 
         userRepository.saveAllAndFlush(Arrays.asList(user1, user2, user3, user4, user5));
         

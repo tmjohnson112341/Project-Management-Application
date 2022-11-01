@@ -8,18 +8,16 @@ import java.sql.Timestamp;
     @Data
     @NoArgsConstructor
     public class AnnouncementRequestDto {
-
-        private Long id;
-        
+    	
         private Timestamp date;
 
         private String title;
 
         private String message;
 
-        private Long companyId;
+        private Long company;
 
-        private String username;
+        private String user;
 
     }
 

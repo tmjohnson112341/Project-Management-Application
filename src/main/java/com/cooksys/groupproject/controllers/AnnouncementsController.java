@@ -20,14 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class AnnouncementsController {
 
 	
-    private AnnouncementsService announcementsService;
+    private final AnnouncementsService announcementsService;
 
         @GetMapping
         public List<AnnouncementResponseDto> getAllAnnouncements () {
             return announcementsService.getAllAnnouncements();
         }
 
-        @GetMapping("/{companyId}")
+        @GetMapping("/{id}")
         public List<AnnouncementResponseDto> getAllCompanyAnnouncements (@PathVariable Long id){
             return announcementsService.getAllCompanyAnnouncements(id);
         }

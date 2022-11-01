@@ -14,16 +14,16 @@ import java.util.List;
 
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @PostMapping("/validate")
     public UserResponseDto getUser(@RequestBody CredentialsDto credentialsDto) {
         return userService.getUser(credentialsDto);
     }
 
-    @GetMapping("/{companyId}")
-    public List<UserResponseDto> getUsersInCompany(@PathVariable Long companyId) {
-        return userService.getUsersInCompany(companyId);
+    @GetMapping("/{id}")
+    public List<UserResponseDto> getUsersInCompany(@PathVariable Long id) {
+        return userService.getUsersInCompany(id);
     }
 
 

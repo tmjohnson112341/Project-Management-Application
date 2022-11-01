@@ -32,8 +32,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public User usernameToUser(String username) {
-		Optional<User> userOptional = userRepository.
-				// unfinished
+//		Optional<User> userOptional = userRepository.
+				// unfinished 
+		return null;
 	}
 
 	@Override
@@ -58,7 +59,7 @@ public class UserServiceImpl implements UserService{
 		checkUser.setStatus("");
 		userRepository.saveAndFlush(checkUser);
 
-		return userMapper.entityToDto(getUserByCredentials(credentialsDto));
+		return userMapper.entityToResponseDto(getUserByCredentials(credentialsDto));
 	}
 	@Override
 	public List<UserResponseDto> getUsersInCompany(Long id) {

@@ -9,14 +9,16 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class AnnouncementResponseDto {
 	
+	private Long id;
+	
 	private Timestamp date;
 	
     private String title;
 
     private String message;
 
-    private CompanyResponseDto companyResponseDto;
+    private CompanyResponseDto company;
 
-    private UserResponseDto Author;
+    private UserResponseDto user;
 
 }

@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 
 public class CompanyController {
 
-    private CompanyService companyService;
+    private final CompanyService companyService;
 
     @GetMapping
     public List<CompanyRequestDto> getAllCompanies() {

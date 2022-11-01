@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/project")
 public class ProjectController {
-    private ProjectService projectService;
+    private final ProjectService projectService;
 
     @GetMapping
     public List<ProjectResponseDto> getAllProjects() {

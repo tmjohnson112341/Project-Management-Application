@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/team")
 public class TeamController {
 
-    private TeamService teamService;
+    private final TeamService teamService;
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<TeamResponseDto> getTeams() {
@@ -21,13 +21,13 @@ public class TeamController {
     }
 
 
-    @GetMapping("/company/{companyId}")
+    @GetMapping("/company/{id}")
     public List<TeamResponseDto> getTeamsByCompanyId(@PathVariable Long id) {
         return teamService.getTeamsByCompanyId(id);
     }
 
 
-    @GetMapping("/{teamId}")
+    @GetMapping("/{id}")
     public TeamResponseDto getTeamById(@PathVariable Long id) {
         return teamService.getTeamById(id);
     }

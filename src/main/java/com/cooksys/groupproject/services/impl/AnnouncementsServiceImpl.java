@@ -3,14 +3,14 @@ package com.cooksys.groupproject.services.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.cooksys.groupproject.dtos.AnnouncementResponseDto;
 import com.cooksys.groupproject.entities.Announcements;
 import com.cooksys.groupproject.mappers.AnnouncementsMapper;
 import com.cooksys.groupproject.repositories.AnnouncementsRepository;
 import com.cooksys.groupproject.repositories.CompanyRepository;
 import com.cooksys.groupproject.repositories.UserRepository;
-import org.springframework.stereotype.Service;
-
-import com.cooksys.groupproject.dtos.AnnouncementResponseDto;
 import com.cooksys.groupproject.services.AnnouncementsService;
 
 import lombok.RequiredArgsConstructor;
@@ -33,12 +33,12 @@ public class AnnouncementsServiceImpl implements AnnouncementsService {
 	}
 
 	@Override
-	public List<AnnouncementResponseDto> getAllCompanyAnnouncements(Long companyId) {
+	public List<AnnouncementResponseDto> getAllCompanyAnnouncements(Long id) {
 		List<Announcements> companyAnnouncements = announcementsRepository.findAll();
 
 		List<Announcements> tempAnnouncements = new ArrayList<>();
 		for (Announcements announcements : companyAnnouncements) {
-			if (announcements.getCompany().getId() == (companyId)){
+			if (announcements.getCompany().getId() == (id)){
 				tempAnnouncements.add(announcements);
 			}
 		}

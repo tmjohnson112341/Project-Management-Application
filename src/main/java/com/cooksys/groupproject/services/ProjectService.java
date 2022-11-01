@@ -12,5 +12,5 @@ public interface ProjectService {
 
     List<ProjectResponseDto> getProjectsByTeamId(Long teamId);
 
-    List<ProjectResponseDto> getProjectsByCompanyId(Long companyId);
+    List<ProjectResponseDto> getProjectsByCompanyId(Long id);
 }

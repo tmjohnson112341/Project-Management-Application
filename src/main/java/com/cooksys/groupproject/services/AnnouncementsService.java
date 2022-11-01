@@ -8,5 +8,5 @@ public interface AnnouncementsService {
 
     List<AnnouncementResponseDto> getAllAnnouncements();
 
-    List<AnnouncementResponseDto> getAllCompanyAnnouncements(Long companyId);
+    List<AnnouncementResponseDto> getAllCompanyAnnouncements(Long id);
 }

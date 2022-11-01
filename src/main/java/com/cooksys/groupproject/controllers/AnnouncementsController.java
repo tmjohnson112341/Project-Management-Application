@@ -23,6 +23,6 @@ public class AnnouncementsController {
     }
 
     @GetMapping("/{companyId}")
-    public List<AnnouncementResponseDto> getAllCompanyAnnouncements(@PathVariable Long companyId)  {
-        return announcementsService.getAllCompanyAnnouncements(companyId);
+    public List<AnnouncementResponseDto> getAllCompanyAnnouncements(@PathVariable Long id)  {
+        return announcementsService.getAllCompanyAnnouncements(id);
     }}

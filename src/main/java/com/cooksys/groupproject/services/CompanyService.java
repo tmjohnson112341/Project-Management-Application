@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CompanyService {
 
-    CompanyRequestDto getCompanyById(Long companyId);
+    CompanyRequestDto getCompanyById(Long id);
 
     List<CompanyRequestDto> getAllCompanies();
 }

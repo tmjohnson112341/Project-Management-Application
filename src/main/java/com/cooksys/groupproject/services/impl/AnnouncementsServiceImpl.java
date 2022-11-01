@@ -1,7 +1,13 @@
 package com.cooksys.groupproject.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.cooksys.groupproject.entities.Announcements;
+import com.cooksys.groupproject.mappers.AnnouncementsMapper;
+import com.cooksys.groupproject.repositories.AnnouncementsRepository;
+import com.cooksys.groupproject.repositories.CompanyRepository;
+import com.cooksys.groupproject.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import com.cooksys.groupproject.dtos.AnnouncementResponseDto;
@@ -11,16 +17,32 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class AnnouncementsServiceImpl implements AnnouncementsService {@Override
+public class AnnouncementsServiceImpl implements AnnouncementsService {
+
+	private final AnnouncementsRepository announcementsRepository;
+	private final AnnouncementsMapper announcementsMapper;
+	private final UserRepository userRepository;
+	private final CompanyRepository companyRepository;
+
+
+
+	@Override
 	public List<AnnouncementResponseDto> getAllAnnouncements() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<AnnouncementResponseDto> getAllCompanyAnnouncements(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<AnnouncementResponseDto> getAllCompanyAnnouncements(Long companyId) {
+		List<Announcements> companyAnnouncements = announcementsRepository.findAll();
+
+		List<Announcements> tempAnnouncements = new ArrayList<>();
+		for (Announcements announcements : companyAnnouncements) {
+			if (announcements.getCompany().getId() == (companyId)){
+				tempAnnouncements.add(announcements);
+			}
+		}
+		return announcementsMapper.entitiesToResponseDtos(tempAnnouncements);
 	}
 
 }

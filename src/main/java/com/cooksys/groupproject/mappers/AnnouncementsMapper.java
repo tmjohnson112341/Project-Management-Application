@@ -17,4 +17,5 @@ public interface AnnouncementsMapper {
 	
 	List<AnnouncementResponseDto> entitiesToResponseDtos(List<Announcements> announcements);
 
+
 }

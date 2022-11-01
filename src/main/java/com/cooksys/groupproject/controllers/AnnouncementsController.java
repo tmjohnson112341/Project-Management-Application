@@ -2,17 +2,15 @@ package com.cooksys.groupproject.controllers;
 
 import com.cooksys.groupproject.dtos.AnnouncementResponseDto;
 import com.cooksys.groupproject.services.AnnouncementsService;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.*;
-
-
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,8 +19,8 @@ import java.util.List;
 
 public class AnnouncementsController {
 
-
-        private AnnouncementsService announcementsService;
+	
+    private AnnouncementsService announcementsService;
 
         @GetMapping
         public List<AnnouncementResponseDto> getAllAnnouncements () {

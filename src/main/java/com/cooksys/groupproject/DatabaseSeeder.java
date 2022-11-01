@@ -49,6 +49,7 @@ public class DatabaseSeeder implements CommandLineRunner{
         user1.setAdmin(false);
         user1.setStatus("Joined");
         
+        
 
         
         // --- User 2 ---
@@ -140,7 +141,7 @@ public class DatabaseSeeder implements CommandLineRunner{
         
         companyRepository.saveAllAndFlush(Arrays.asList(company1, company2, company3));
         
-        
+
         //TEAMS
         Team team1 = new Team();
         team1.setName("Team One");

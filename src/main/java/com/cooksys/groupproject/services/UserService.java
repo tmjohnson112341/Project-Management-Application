@@ -1,10 +1,9 @@
 package com.cooksys.groupproject.services;
 
-import com.cooksys.groupproject.dtos.CredentialsDto;
-import com.cooksys.groupproject.dtos.UserRequestDto;
-import com.cooksys.groupproject.dtos.UserResponseDto;
-
 import java.util.List;
+
+import com.cooksys.groupproject.dtos.CredentialsDto;
+import com.cooksys.groupproject.dtos.UserResponseDto;
 
 public interface UserService {
 

@@ -41,13 +41,14 @@ public class DatabaseSeeder implements CommandLineRunner{
 
         User user1 = new User();
         user1.setCredentials(user1Cred);
-        user1.setFirst("Master");
-        user1.setLast("Chief");
+        user1.setFirstName("Master");
+        user1.setLastName("Chief");
         user1.setEmail("sierra117@email.com");
         user1.setPhone("123-456-7890");
         user1.setActive(true);
         user1.setAdmin(false);
         user1.setStatus("Joined");
+        
         
 
         
@@ -59,8 +60,8 @@ public class DatabaseSeeder implements CommandLineRunner{
 
         User user2 = new User();
         user2.setCredentials(user2Cred);
-        user2.setFirst("Mario");
-        user2.setLast("Mario");
+        user2.setFirstName("Mario");
+        user2.setLastName("Mario");
         user2.setEmail("mario@email.com");
         user2.setPhone("234-567-8901");
         user1.setActive(true);
@@ -77,8 +78,8 @@ public class DatabaseSeeder implements CommandLineRunner{
 
         User user3 = new User();
         user3.setCredentials(user3Cred);
-        user3.setFirst("Luigi");
-        user3.setLast("Mario");
+        user3.setFirstName("Luigi");
+        user3.setLastName("Mario");
         user3.setEmail("luigi@email.com");
         user3.setPhone("345-678-9012");
         user1.setActive(true);
@@ -96,8 +97,8 @@ public class DatabaseSeeder implements CommandLineRunner{
 
         User user4 = new User();
         user4.setCredentials(user4Cred);
-        user4.setFirst("Nathan");
-        user4.setLast("Drake");
+        user4.setFirstName("Nathan");
+        user4.setLastName("Drake");
         user4.setEmail("nathan@email.com");
         user4.setPhone("456-789-0023");
         user1.setActive(true);
@@ -112,8 +113,8 @@ public class DatabaseSeeder implements CommandLineRunner{
 
         User user5 = new User();
         user5.setCredentials(user5Cred);
-        user5.setFirst("The");
-        user5.setLast("Tarnished");
+        user5.setFirstName("The");
+        user5.setLastName("Tarnished");
         user5.setEmail("willibecometheeldenlord@email.com");
         user5.setPhone("567-890-0034");
         user1.setActive(false);
@@ -140,7 +141,7 @@ public class DatabaseSeeder implements CommandLineRunner{
         
         companyRepository.saveAllAndFlush(Arrays.asList(company1, company2, company3));
         
-        
+
         //TEAMS
         Team team1 = new Team();
         team1.setName("Team One");

@@ -1,0 +1,19 @@
+import React from 'react';
+
+//import 'bootstrap/dist/css/bootstrap.css';
+
+function Projects() {
+  return (
+    <div className="card-container">
+      <h4 className="card-title">Team name projects</h4>
+      <ul className="list-group list-group-flush" style={{ display: 'flex', paddingTop: '20vh',  width: '80rem' }}>
+        <li className="list-group-item" style={{ backgroundColor: 'inherit', color: 'white', border: 'solid beige' }}>Item 1</li>
+        <li className="list-group-item" style={{ backgroundColor: 'inherit', color: 'white', border: 'solid beige' }}>Item 2</li>
+        <li className="list-group-item" style={{ backgroundColor: 'inherit', color: 'white', border: 'solid beige' }}>Item 3</li>
+        <li className="list-group-item" style={{ backgroundColor: 'inherit', color: 'white', border: 'solid beige' }}>Item 4</li>
+      </ul>
+    </div>
+  );
+}
+
+export default Projects

@@ -1,27 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import Login from './components/Login'
+import Announcements from './components/Announcements'
+import Projects from './components/Projects'
+
+const App = () => (
+  <div style={{backgroundColor: '#051622', height: '100vh'}}>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route path="/announcements" element={<Announcements />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </Router>
+  </div>
+);
 
 export default App;

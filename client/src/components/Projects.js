@@ -2,7 +2,7 @@ import React from 'react';
 
 //import 'bootstrap/dist/css/bootstrap.css';
 
-function Projects() {
+const Projects = () => {
   return (
     <div className="card-container">
       <h4 className="card-title">Team name projects</h4>

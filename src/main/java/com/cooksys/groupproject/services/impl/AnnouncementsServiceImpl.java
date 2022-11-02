@@ -9,8 +9,6 @@ import com.cooksys.groupproject.dtos.AnnouncementResponseDto;
 import com.cooksys.groupproject.entities.Announcements;
 import com.cooksys.groupproject.mappers.AnnouncementsMapper;
 import com.cooksys.groupproject.repositories.AnnouncementsRepository;
-import com.cooksys.groupproject.repositories.CompanyRepository;
-import com.cooksys.groupproject.repositories.UserRepository;
 import com.cooksys.groupproject.services.AnnouncementsService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,10 +19,6 @@ public class AnnouncementsServiceImpl implements AnnouncementsService {
 
 	private final AnnouncementsRepository announcementsRepository;
 	private final AnnouncementsMapper announcementsMapper;
-	private final UserRepository userRepository;
-	private final CompanyRepository companyRepository;
-
-
 
 	@Override
 	public List<AnnouncementResponseDto> getAllAnnouncements() {

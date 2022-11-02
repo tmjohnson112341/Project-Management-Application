@@ -3,8 +3,6 @@ package com.cooksys.groupproject.dtos;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-
 
     @Data
     @NoArgsConstructor
@@ -16,9 +14,7 @@ import java.sql.Timestamp;
 
         private String description;
 
-        private Timestamp timePosted;
-
         private Boolean active;
 
-        private TeamResponseDto teamResponseDto;
+        private TeamResponseDto team;
     }

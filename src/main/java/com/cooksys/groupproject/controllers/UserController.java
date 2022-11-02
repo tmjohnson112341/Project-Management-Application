@@ -1,12 +1,18 @@
 package com.cooksys.groupproject.controllers;
 
-import com.cooksys.groupproject.dtos.CredentialsDto;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.cooksys.groupproject.dtos.UserResponseDto;
 import com.cooksys.groupproject.services.UserService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
@@ -15,13 +21,19 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-
-    @PostMapping("/validate")
-    public UserResponseDto getUser(@RequestBody CredentialsDto credentialsDto) {
-        return userService.getUser(credentialsDto);
+    
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<UserResponseDto> getUsers(){
+    	return userService.getUsers();
+    }
+    
+    @GetMapping("/{id}")
+    public UserResponseDto getUserById(@PathVariable Long id) {
+    	return userService.getUserById(id);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/company/{id}")
     public List<UserResponseDto> getUsersInCompany(@PathVariable Long id) {
         return userService.getUsersInCompany(id);
     }

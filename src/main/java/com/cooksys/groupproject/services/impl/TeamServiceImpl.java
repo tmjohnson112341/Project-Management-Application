@@ -1,6 +1,8 @@
 package com.cooksys.groupproject.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -29,11 +31,17 @@ public class TeamServiceImpl implements TeamService{
 		return optionalTeam.get();
 	}
 	
-	@Override
-	public List<TeamResponseDto> getTeamsByCompanyId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public List<TeamResponseDto> getTeamsByCompanyId(Long id) {
+
+        List<Team> teams = new ArrayList<>();
+        for (Team team : teamRepository.findAll()) {
+            if (Objects.equals(team.getCompany().getId(), id)) {
+                teams.add(team);
+            }
+        }
+        return teamMapper.entitiesToResponseDtos(teams);
+    }
 
 	@Override
 	public List<TeamResponseDto> getTeams() {

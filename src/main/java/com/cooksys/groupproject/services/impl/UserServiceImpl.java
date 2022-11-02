@@ -5,17 +5,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import com.cooksys.groupproject.entities.Credentials;
-import com.cooksys.groupproject.entities.User;
-import com.cooksys.groupproject.exceptions.NotFoundException;
-import com.cooksys.groupproject.mappers.CredentialsMapper;
-import com.cooksys.groupproject.mappers.UserMapper;
 import org.springframework.stereotype.Service;
 
-import com.cooksys.groupproject.dtos.CredentialsDto;
 import com.cooksys.groupproject.dtos.UserResponseDto;
-import com.cooksys.groupproject.services.UserService;
+import com.cooksys.groupproject.entities.User;
+import com.cooksys.groupproject.exceptions.NotFoundException;
+import com.cooksys.groupproject.mappers.UserMapper;
 import com.cooksys.groupproject.repositories.UserRepository;
+import com.cooksys.groupproject.services.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,47 +22,15 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
-
-    private final CredentialsMapper credentialsMapper;
-
-    public User getUserByCredentials(CredentialsDto credentialsDto) {
-        return usernameToUser(credentialsDto.getUsername());
-    }
-
-    public User usernameToUser(String username) {
-        Optional<User> userOptional = userRepository.findByCredentials(username);
-        if (userOptional.isEmpty()) {
-            throw new NotFoundException("That user does not exist");
-        }
-
-        return userOptional.get();
-
-    }
     
-    @Override
-    public UserResponseDto getUser(CredentialsDto credentialsDto) {
-        User checkUser;
-
-        try {
-            checkUser = getUserByCredentials(credentialsDto);
-        } catch (NotFoundException notFoundException) {
-            throw new NotFoundException("That user does not exist");
-        }
-
-        Credentials credentialsInDB = checkUser.getCredentials();
-        Credentials sentCredentials = credentialsMapper.dtoToEntity(credentialsDto);
-
-        if (!checkUser.isActive()) {
-            throw new NotFoundException("That user does not exist");
-        }
-        if (!credentialsInDB.equals(sentCredentials)) {
-            throw new NotFoundException("Incorrect password");
-        }
-        checkUser.setStatus("");
-        userRepository.saveAndFlush(checkUser);
-
-        return userMapper.entityToResponseDto(getUserByCredentials(credentialsDto));
+    public User getUser(Long id) {
+    	Optional<User> optionalUser = userRepository.findById(id);
+    	if(optionalUser.isEmpty()) {
+    		throw new NotFoundException("No users fonud with the id: " + id);
+    	}
+    	return optionalUser.get();
     }
+
     @Override
     public List<UserResponseDto> getUsersInCompany(Long id) {
         List<User> users = userRepository.findAll();
@@ -77,6 +42,16 @@ public class UserServiceImpl implements UserService{
         }
         return userMapper.entitiesToResponseDtos(companyUsers);
     }
+
+	@Override
+	public UserResponseDto getUserById(Long id) {
+		return userMapper.entityToResponseDto(getUser(id));
+	}
+
+	@Override
+	public List<UserResponseDto> getUsers() {
+		return userMapper.entitiesToResponseDtos(userRepository.findAll());
+	}
 
 }
     

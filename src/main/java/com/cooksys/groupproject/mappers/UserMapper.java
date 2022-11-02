@@ -12,6 +12,7 @@ import com.cooksys.groupproject.entities.User;
 public interface UserMapper {
 	
 	@Mapping(target="username", source="credentials.username")
+	@Mapping(target="password", source="credentials.password")
 	UserResponseDto entityToResponseDto(User user);
 	
 	List<UserResponseDto> entitiesToResponseDtos(List<User> users);

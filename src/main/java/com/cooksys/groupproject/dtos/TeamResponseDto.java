@@ -13,6 +13,6 @@ public class TeamResponseDto {
 
     private String description;
 
-    private CompanyRequestDto company;
+    private CompanyResponseDto company;
 
 }

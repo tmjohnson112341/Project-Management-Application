@@ -28,8 +28,7 @@ public class AnnouncementsServiceImpl implements AnnouncementsService {
 
 	@Override
 	public List<AnnouncementResponseDto> getAllAnnouncements() {
-		// TODO Auto-generated method stub
-		return null;
+		return announcementsMapper.entitiesToResponseDtos(announcementsRepository.findAll());
 	}
 
 	@Override

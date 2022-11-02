@@ -32,96 +32,7 @@ public class DatabaseSeeder implements CommandLineRunner{
     
 	@Override
 	public void run(String... args) throws Exception {
-		
-		//USERS
-	        //Credentials
-        Credentials user1Cred = new Credentials();
-        user1Cred.setUsername("therealmc");
-        user1Cred.setPassword("Password");
 
-        User user1 = new User();
-        user1.setCredentials(user1Cred);
-        user1.setFirstName("Master");
-        user1.setLastName("Chief");
-        user1.setEmail("sierra117@email.com");
-        user1.setPhone("123-456-7890");
-        user1.setActive(true);
-        user1.setAdmin(false);
-        user1.setStatus("Joined");
-        
-        
-
-        
-        // --- User 2 ---
-        // Credentials
-        Credentials user2Cred = new Credentials();
-        user2Cred.setUsername("mario");
-        user2Cred.setPassword("password");
-        
-        User user2 = new User();
-        user2.setCredentials(user2Cred);
-        user2.setFirstName("Mario");
-        user2.setLastName("Mario");
-        user2.setEmail("mario@email.com");
-        user2.setPhone("234-567-8901");
-        user2.setActive(true);
-        user2.setAdmin(false);
-        user2.setStatus("Joined");
-
-        
-        // --- User 3 ---
-        Credentials user3Cred = new Credentials();
-        // Credentials
-        user3Cred.setUsername("Luigi");
-        user3Cred.setPassword("Password");
-
-        User user3 = new User();
-        user3.setCredentials(user3Cred);
-        user3.setFirstName("Luigi");
-        user3.setLastName("Mario");
-        user3.setEmail("luigi@email.com");
-        user3.setPhone("345-678-9012");
-        user3.setActive(true);
-        user3.setAdmin(false);
-        user3.setStatus("Pending");
-
-
-  
-
-        // --- User 4 ---
-        // Credentials
-        Credentials user4Cred = new Credentials();
-        user4Cred.setUsername("Nathan");
-        user4Cred.setPassword("Password");
-
-        User user4 = new User();
-        user4.setCredentials(user4Cred);
-        user4.setFirstName("Nathan");
-        user4.setLastName("Drake");
-        user4.setEmail("nathan@email.com");
-        user4.setPhone("456-789-0023");
-        user4.setActive(true);
-        user4.setAdmin(false);
-        user4.setStatus("Joined");
-
-        // --- User 5 ---
-        // Credentials
-        Credentials user5Cred = new Credentials();
-        user5Cred.setUsername("Tarnished");
-        user5Cred.setPassword("Password");
-
-        User user5 = new User();
-        user5.setCredentials(user5Cred);
-        user5.setFirstName("The");
-        user5.setLastName("Tarnished");
-        user5.setEmail("willibecometheeldenlord@email.com");
-        user5.setPhone("567-890-0034");
-        user5.setActive(false);
-        user5.setAdmin(false);
-        user5.setStatus("Pending");
-
-        userRepository.saveAllAndFlush(Arrays.asList(user1, user2, user3, user4, user5));
-        
         
         //COMPANIES
         
@@ -145,17 +56,17 @@ public class DatabaseSeeder implements CommandLineRunner{
         Team team1 = new Team();
         team1.setName("Team One");
         team1.setDescription("The awesome team");
-        team1.setCompany(company1);
+        team1.setCompany(company2);
         
         Team team2 = new Team();
         team2.setName("Team Two");
         team2.setDescription("The smart team");
-        team2.setCompany(company2);
+        team2.setCompany(company3);
         
         Team team3 = new Team();
         team3.setName("Team Three");
         team3.setDescription("The cool team");
-        team3.setCompany(company3);
+        team3.setCompany(company1);
         
         teamRepository.saveAllAndFlush(Arrays.asList(team1, team2, team3));
         
@@ -180,6 +91,107 @@ public class DatabaseSeeder implements CommandLineRunner{
         project3.setTeam(team3);
         
         projectRepository.saveAllAndFlush(Arrays.asList(project1, project2, project3));
+        
+        
+		
+		//USERS
+	        //Credentials
+        Credentials user1Cred = new Credentials();
+        user1Cred.setUsername("therealmc");
+        user1Cred.setPassword("Password1");
+
+        User user1 = new User();
+        user1.setCredentials(user1Cred);
+        user1.setFirstName("Master");
+        user1.setLastName("Chief");
+        user1.setEmail("sierra117@email.com");
+        user1.setPhone("123-456-7890");
+        user1.setActive(true);
+        user1.setAdmin(false);
+        user1.setStatus("Joined");
+        user1.setTeam(team3);
+        user1.setCompany(company1);
+        
+        
+
+        
+        // --- User 2 ---
+        // Credentials
+        Credentials user2Cred = new Credentials();
+        user2Cred.setUsername("mario");
+        user2Cred.setPassword("password2");
+        
+        User user2 = new User();
+        user2.setCredentials(user2Cred);
+        user2.setFirstName("Mario");
+        user2.setLastName("Mario");
+        user2.setEmail("mario@email.com");
+        user2.setPhone("234-567-8901");
+        user2.setActive(true);
+        user2.setAdmin(false);
+        user2.setStatus("Joined");
+        user2.setTeam(team1); 
+        user2.setCompany(company2);
+
+        
+        // --- User 3 ---
+        Credentials user3Cred = new Credentials();
+        // Credentials
+        user3Cred.setUsername("Luigi");
+        user3Cred.setPassword("Password3");
+
+        User user3 = new User();
+        user3.setCredentials(user3Cred);
+        user3.setFirstName("Luigi");
+        user3.setLastName("Mario");
+        user3.setEmail("luigi@email.com");
+        user3.setPhone("345-678-9012");
+        user3.setActive(true);
+        user3.setAdmin(false);
+        user3.setStatus("Pending");
+        user3.setTeam(team2);
+        user3.setCompany(company3);
+
+  
+
+        // --- User 4 ---
+        // Credentials
+        Credentials user4Cred = new Credentials();
+        user4Cred.setUsername("Nathan");
+        user4Cred.setPassword("Password4");
+
+        User user4 = new User();
+        user4.setCredentials(user4Cred);
+        user4.setFirstName("Nathan");
+        user4.setLastName("Drake");
+        user4.setEmail("nathan@email.com");
+        user4.setPhone("456-789-0023");
+        user4.setActive(true);
+        user4.setAdmin(false);
+        user4.setStatus("Joined");
+        user4.setTeam(team3);
+        user4.setCompany(company1);
+
+        // --- User 5 ---
+        // Credentials
+        Credentials user5Cred = new Credentials();
+        user5Cred.setUsername("Tarnished");
+        user5Cred.setPassword("Password5");
+
+        User user5 = new User();
+        user5.setCredentials(user5Cred);
+        user5.setFirstName("The");
+        user5.setLastName("Tarnished");
+        user5.setEmail("willibecometheeldenlord@email.com");
+        user5.setPhone("567-890-0034");
+        user5.setActive(false);
+        user5.setAdmin(false);
+        user5.setStatus("Pending");
+        user5.setTeam(team1);
+        user5.setCompany(company2);
+
+        userRepository.saveAllAndFlush(Arrays.asList(user1, user2, user3, user4, user5));
+        
         
         
         //ANNOUNCEMENTS

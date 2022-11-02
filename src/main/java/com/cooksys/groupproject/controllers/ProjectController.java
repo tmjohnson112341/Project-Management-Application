@@ -26,12 +26,12 @@ public class ProjectController {
         return projectService.getProjectById(id);
     }
 
-    @GetMapping("/team/{teamId}")
+    @GetMapping("/team/{id}")
     public List<ProjectResponseDto> getProjectsByTeamId(@PathVariable Long id) {
         return projectService.getProjectsByTeamId(id);
     }
 
-    @GetMapping("/company/{companyId}")
+    @GetMapping("/company/{id}")
     public List<ProjectResponseDto> getProjectsByCompanyId(@PathVariable Long id) {
         return projectService.getProjectsByCompanyId(id);
     }

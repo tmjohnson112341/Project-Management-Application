@@ -20,5 +20,5 @@ import java.sql.Timestamp;
 
         private Boolean active;
 
-        private TeamRequestDto teamRequestDto;
+        private TeamResponseDto teamResponseDto;
     }

@@ -2,6 +2,7 @@ package com.cooksys.groupproject.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import com.cooksys.groupproject.entities.Credentials;
@@ -22,55 +23,61 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
 
-	private final UserRepository userRepository;
-	private final UserMapper userMapper;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
-	private final CredentialsMapper credentialsMapper;
+    private final CredentialsMapper credentialsMapper;
 
-	public User getUserByCredentials(CredentialsDto credentialsDto) {
-		return usernameToUser(credentialsDto.getUsername());
-	}
+    public User getUserByCredentials(CredentialsDto credentialsDto) {
+        return usernameToUser(credentialsDto.getUsername());
+    }
 
-	public User usernameToUser(String username) {
-//		Optional<User> userOptional = userRepository.
-				// unfinished 
-		return null;
-	}
+    public User usernameToUser(String username) {
+        Optional<User> userOptional = userRepository.findByCredentials(username);
+        if (userOptional.isEmpty()) {
+            throw new NotFoundException("That user does not exist");
+        }
 
-	@Override
-	public UserResponseDto getUser(CredentialsDto credentialsDto) {
-		User checkUser;
+        return userOptional.get();
 
-		try {
-			checkUser = getUserByCredentials(credentialsDto);
-		} catch (NotFoundException notFoundException) {
-			throw new NotFoundException("That user does not exist");
-		}
+    }
+    
+    @Override
+    public UserResponseDto getUser(CredentialsDto credentialsDto) {
+        User checkUser;
 
-		Credentials credentialsInDB = checkUser.getCredentials();
-		Credentials sentCredentials = credentialsMapper.dtoToEntity(credentialsDto);
+        try {
+            checkUser = getUserByCredentials(credentialsDto);
+        } catch (NotFoundException notFoundException) {
+            throw new NotFoundException("That user does not exist");
+        }
 
-		if (!checkUser.isActive()) {
-			throw new NotFoundException("That user does not exist");
-		}
-		if (!credentialsInDB.equals(sentCredentials)) {
-			throw new NotFoundException("Incorrect password");
-		}
-		checkUser.setStatus("");
-		userRepository.saveAndFlush(checkUser);
+        Credentials credentialsInDB = checkUser.getCredentials();
+        Credentials sentCredentials = credentialsMapper.dtoToEntity(credentialsDto);
 
-		return userMapper.entityToResponseDto(getUserByCredentials(credentialsDto));
-	}
-	@Override
-	public List<UserResponseDto> getUsersInCompany(Long id) {
-		List<User> users = userRepository.findAll();
-		List<User> companyUsers = new ArrayList<>();
-		for (User user : users) {
-			if (user.getCompany().getId() == (id)) {
-				companyUsers.add(user);
-			}
-		}
-		return userMapper.entitiesToResponseDtos(companyUsers);
-	}
+        if (!checkUser.isActive()) {
+            throw new NotFoundException("That user does not exist");
+        }
+        if (!credentialsInDB.equals(sentCredentials)) {
+            throw new NotFoundException("Incorrect password");
+        }
+        checkUser.setStatus("");
+        userRepository.saveAndFlush(checkUser);
+
+        return userMapper.entityToResponseDto(getUserByCredentials(credentialsDto));
+    }
+    @Override
+    public List<UserResponseDto> getUsersInCompany(Long id) {
+        List<User> users = userRepository.findAll();
+        List<User> companyUsers = new ArrayList<>();
+        for (User user : users) {
+            if (Objects.equals(user.getCompany().getId(), id)) {
+                companyUsers.add(user);
+            }
+        }
+        return userMapper.entitiesToResponseDtos(companyUsers);
+    }
 
 }
+    
+    

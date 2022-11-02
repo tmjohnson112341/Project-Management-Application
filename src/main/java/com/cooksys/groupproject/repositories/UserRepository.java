@@ -10,9 +10,10 @@ import com.cooksys.groupproject.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
-	
-	Optional<User> findById(Long id);
-	
-	List<User>findAll();
+    
+    Optional<User> findById(Long id);
+    
+    List<User>findAll();
 
+    Optional<User> findByCredentials(String username);
 }

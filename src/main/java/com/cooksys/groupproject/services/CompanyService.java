@@ -1,12 +1,12 @@
 package com.cooksys.groupproject.services;
 
-import com.cooksys.groupproject.dtos.CompanyRequestDto;
-
 import java.util.List;
+
+import com.cooksys.groupproject.dtos.CompanyResponseDto;
 
 public interface CompanyService {
 
-    CompanyRequestDto getCompanyById(Long id);
+    CompanyResponseDto getCompanyById(Long id);
 
-    List<CompanyRequestDto> getAllCompanies();
+    List<CompanyResponseDto> getAllCompanies();
 }

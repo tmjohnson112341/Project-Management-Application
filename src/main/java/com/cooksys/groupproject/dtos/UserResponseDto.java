@@ -9,8 +9,16 @@ public class UserResponseDto {
     private Long id;
 
     private String username;
-
-    private ProfileDto profile;
+    
+    private String password;
+    
+    private String firstName;
+    
+    private String lastName;
+    
+    private String email;
+    
+    private String phone;
 
     private Boolean Active;
 
@@ -18,7 +26,7 @@ public class UserResponseDto {
 
     private String status;
 
-    private TeamRequestDto teamRequestDto;
+    private TeamResponseDto team;
 
-    private CompanyRequestDto companyRequestDto;
+    private CompanyResponseDto company;
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cooksys.groupproject.dtos.CompanyRequestDto;
+import com.cooksys.groupproject.dtos.CompanyResponseDto;
 import com.cooksys.groupproject.services.CompanyService;
 
 import lombok.RequiredArgsConstructor;
@@ -21,12 +22,12 @@ public class CompanyController {
     private final CompanyService companyService;
 
     @GetMapping
-    public List<CompanyRequestDto> getAllCompanies() {
+    public List<CompanyResponseDto> getAllCompanies() {
         return companyService.getAllCompanies();
     }
 
-    @GetMapping("/{companyId}")
-    public CompanyRequestDto getCompanyById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public CompanyResponseDto getCompanyById(@PathVariable Long id) {
         return companyService.getCompanyById(id);
     }
 }

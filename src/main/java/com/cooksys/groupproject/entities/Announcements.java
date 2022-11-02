@@ -22,7 +22,7 @@ public class Announcements {
 	
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
 	@CreationTimestamp
     private Timestamp date; 

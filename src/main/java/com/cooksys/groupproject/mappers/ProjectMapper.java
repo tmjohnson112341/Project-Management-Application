@@ -2,7 +2,6 @@ package com.cooksys.groupproject.mappers;
 
 import java.util.List;
 
-import com.cooksys.groupproject.dtos.ProjectRequestDto;
 import org.mapstruct.Mapper;
 
 import com.cooksys.groupproject.dtos.ProjectRequestDto;

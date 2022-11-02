@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
-import Announcements from "./Announcements";
+import { useNavigate } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -9,6 +9,7 @@ const Login = () => {
   const [credentials, getCredentials] = useState();
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://localhost:3001/users')
@@ -43,6 +44,8 @@ const Login = () => {
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         setIsSubmitted(true);
+        navigate("/home");
+        
       }
     } else {
       // Username not found
@@ -67,7 +70,7 @@ const Login = () => {
             <Form.Control type="password" name="password" placeholder="Password" />
             {renderErrorMessage("password")}
           </Form.Group>
-          <Button type="submit">
+          <Button id="loginSubmit" type="submit">
             Login
           </Button>
         </Form>

@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
 
-
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
+import Announcements from "./components/Announcements";
+import Projects from "./components/Projects";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <NavBar />
       <Routes>
           <Route path="/" element={<Login/>}/>
-          <Route path="/announcements" element={<Announcements />} />
+          <Route path="/home" element={<Announcements />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
     </div>

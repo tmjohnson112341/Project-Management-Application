@@ -1,16 +1,13 @@
 import React from 'react'
+import styles from '../styles/ACard.css'
 
-const ACard = () => {
+const ACard = (props) => {
   return (
     <div className="card">
         <div className="card-body">
-            <h1 className="card-title">Chris, CEO</h1>
-            <h1 className="date">11/1/2022</h1>
-            <p>
-                Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum 
-                Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum
-                Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum 
-            </p>
+            <h1 className="name">{props.name}</h1>
+            <h1 className="date">{props.date}</h1>
+            <p className="description">{props.description}</p>
         </div>
     </div>
   )

@@ -37,3 +37,25 @@ code {
   color: #1BA098;
   margin: 75px auto;
 }
+
+.card-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: inherit;
+}
+
+.card-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1BA098;
+  font-family: Inter, sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 72px;
+  padding-top: 10vh;
+  height: 72px;
+  width: 484px;
+}

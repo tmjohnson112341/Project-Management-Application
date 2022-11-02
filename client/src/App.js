@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Announcements from "./components/Announcements";
 import Projects from "./components/Projects";
 import Layout from "./components/Layout";
+import ProjectsList from "./components/ProjectsList";
 
 function App() {
   return (

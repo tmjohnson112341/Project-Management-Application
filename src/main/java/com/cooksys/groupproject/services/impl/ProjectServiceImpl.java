@@ -12,6 +12,7 @@ import com.cooksys.groupproject.repositories.ProjectRepository;
 import com.cooksys.groupproject.repositories.TeamRepository;
 import org.springframework.stereotype.Service;
 
+import com.cooksys.groupproject.dtos.ProjectRequestDto;
 import com.cooksys.groupproject.dtos.ProjectResponseDto;
 import com.cooksys.groupproject.services.ProjectService;
 
@@ -54,6 +55,11 @@ public class ProjectServiceImpl implements ProjectService{
         projects.removeIf(project -> !Objects.equals(project.getTeam().getCompany().getId(), id));
         return projectMapper.entitiesToResponseDtos(projects);
     }
+
+	@Override
+	public ProjectResponseDto createProject(ProjectRequestDto projectRequestDto) {
+		return projectMapper.entityToResponseDto(projectRepository.saveAndFlush(projectMapper.requestDtoToEntity(projectRequestDto)));
+	}
 
 }
     

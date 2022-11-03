@@ -1,5 +1,6 @@
 package com.cooksys.groupproject.services;
 
+import com.cooksys.groupproject.dtos.ProjectRequestDto;
 import com.cooksys.groupproject.dtos.ProjectResponseDto;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface ProjectService {
     List<ProjectResponseDto> getProjectsByTeamId(Long id);
 
     List<ProjectResponseDto> getProjectsByCompanyId(Long id);
+
+	ProjectResponseDto createProject(ProjectRequestDto projectRequestDto);
 }

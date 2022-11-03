@@ -1,7 +1,5 @@
 package com.cooksys.groupproject.entities;
 
-import java.sql.Timestamp;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,7 +23,7 @@ public class Announcements {
 	private Long id;
 	
 	@CreationTimestamp
-    private Timestamp date; 
+    private java.sql.Date date; 
 	
 	private String title;
 	

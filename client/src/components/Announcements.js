@@ -6,6 +6,8 @@ import fetchUserData from './Login'
 
 const url = `http://localhost:8080/announcements/company/${companyId}`
 
+
+
 const Announcements = () => {
   const [company, setCompany] = useState(JSON.parse(localStorage.getItem("company")));
   const [announcementData, setAnnouncementData] = useState({});
@@ -13,7 +15,6 @@ const Announcements = () => {
   const [date, setDate] = useState();
   const [description, setDescription] = useState({description: "Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum"});
 
-  
 
   const loadAnnouncements = async (id) => {
     const response = await fetchUserData(`${id}`);

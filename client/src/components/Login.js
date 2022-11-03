@@ -5,23 +5,32 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const Login = () => {
+
   const [userData, setUserData] = useState([]);
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [company, setCompany] = useState();
+  const [team, setTeam] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchData = async () => {
       const response = await fetch('http://localhost:3001/users')
       const newData = await response.json();
       setUserData(newData);
-    }; 
-    fetchUserData();
+    };
+    fetchData();
   }, []);
 
-  // const handleChange = (e) => {
-  //   const userValue = e.target.value;
-  // }
+  let handleChange = (e) => {
+    const userValue = e.target.value;
+    const companyData = userData.filter((user) => user.username === userValue).map(item => item.company);
+    const teamData = userData.filter((user) => user.username === userValue).map(item => item.team);
+    setCompany(
+        companyData
+    )
+    setTeam(teamData)
+  }
   
   const errors = {
     username: "invalid username",
@@ -47,10 +56,10 @@ const Login = () => {
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         setIsSubmitted(true);
-        localStorage.setItem("user", JSON.stringify(userInfo));
-        // localStorage.setItem("companyId", JSON.stringify(company));
-        // localStorage.setItem("teamId", JSON.stringify(team));
+        localStorage.setItem("companyID", JSON.stringify(company));
+        localStorage.setItem("teamID", JSON.stringify(team));
         navigate("/home");
+
         
       }
     } else {
@@ -68,7 +77,7 @@ const Login = () => {
         <Form className='login' onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" name="username" placeholder="Enter username" />
+            <Form.Control type="text" name="username" placeholder="Enter username" onChange={handleChange} />
             {renderErrorMessage("username")}
           </Form.Group>
           <Form.Group className="mb-3">

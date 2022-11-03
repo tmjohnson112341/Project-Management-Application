@@ -5,15 +5,14 @@
     justify-content: center;
     background-color: #0B2D45;
     color: white;
+    margin-top: 10vh;
+    width: 100vh;
+    margin-left: 55vh;
+    margin-bottom: 10vh;
 }
 
-.card-body{    
-    position: absolute;
-    width: 700px;
-    height: 350px;
-    left: 430px;
-    top: 100px;
-    background: #0B2D45;
+.card-body{      
+    height: 50vh;
     border-radius: 20px
 }
 

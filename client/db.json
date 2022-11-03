@@ -3,7 +3,10 @@
     {
       "id": 1,
       "username": "becky",
-      "password": "final"
+      "password": "final",
+      "company" : "fedEx",
+      "team": 4
+
     },
     {
       "id": 2,

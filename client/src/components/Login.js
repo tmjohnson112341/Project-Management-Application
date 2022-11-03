@@ -6,19 +6,31 @@ import Form from 'react-bootstrap/Form';
 
 const Login = () => {
 
-  const [credentials, getCredentials] = useState();
+  const [userData, setUserData] = useState([]);
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [company, setCompany] = useState();
+  const [team, setTeam] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3001/users')
-      .then(res => res.json())
-      .then(data => getCredentials(data))
-      .catch(err => console.error(err))
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:3001/users')
+      const newData = await response.json();
+      setUserData(newData);
+    };
+    fetchData();
   }, []);
 
-
+  let handleChange = (e) => {
+    const userValue = e.target.value;
+    const companyData = userData.filter((user) => user.username === userValue).map(item => item.company);
+    const teamData = userData.filter((user) => user.username === userValue).map(item => item.team);
+    setCompany(
+        companyData
+    )
+    setTeam(teamData)
+  }
   
   const errors = {
     username: "invalid username",
@@ -30,21 +42,24 @@ const Login = () => {
     <div className="error">{errorMessages.message}</div>
   );
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (e) => {
     // Prevent page reload
-    event.preventDefault();
+    e.preventDefault();
 
     let { username, password } = document.forms[0];
 
-    const userData = credentials.find((user) => user.username === username.value);
+    const userInfo = userData.find((user) => user.username === username.value);
 
-    if (userData) {
-      if (userData.password !== password.value) {
+    if (userInfo) {
+      if (userInfo.password !== password.value) {
         // Invalid password
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         setIsSubmitted(true);
+        localStorage.setItem("companyID", JSON.stringify(company));
+        localStorage.setItem("teamID", JSON.stringify(team));
         navigate("/home");
+
         
       }
     } else {
@@ -62,7 +77,7 @@ const Login = () => {
         <Form className='login' onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" name="username" placeholder="Enter username" />
+            <Form.Control type="text" name="username" placeholder="Enter username" onChange={handleChange} />
             {renderErrorMessage("username")}
           </Form.Group>
           <Form.Group className="mb-3">

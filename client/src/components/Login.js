@@ -5,20 +5,23 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const Login = () => {
-
-  const [credentials, getCredentials] = useState();
+  const [userData, setUserData] = useState([]);
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3001/users')
-      .then(res => res.json())
-      .then(data => getCredentials(data))
-      .catch(err => console.error(err))
+    const fetchUserData = async () => {
+      const response = await fetch('http://localhost:3001/users')
+      const newData = await response.json();
+      setUserData(newData);
+    }; 
+    fetchUserData();
   }, []);
 
-
+  // const handleChange = (e) => {
+  //   const userValue = e.target.value;
+  // }
   
   const errors = {
     username: "invalid username",
@@ -30,20 +33,23 @@ const Login = () => {
     <div className="error">{errorMessages.message}</div>
   );
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (e) => {
     // Prevent page reload
-    event.preventDefault();
+    e.preventDefault();
 
     let { username, password } = document.forms[0];
 
-    const userData = credentials.find((user) => user.username === username.value);
+    const userInfo = userData.find((user) => user.username === username.value);
 
-    if (userData) {
-      if (userData.password !== password.value) {
+    if (userInfo) {
+      if (userInfo.password !== password.value) {
         // Invalid password
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         setIsSubmitted(true);
+        localStorage.setItem("user", JSON.stringify(userInfo));
+        // localStorage.setItem("companyId", JSON.stringify(company));
+        // localStorage.setItem("teamId", JSON.stringify(team));
         navigate("/home");
         
       }
@@ -70,7 +76,7 @@ const Login = () => {
             <Form.Control type="password" name="password" placeholder="Password" />
             {renderErrorMessage("password")}
           </Form.Group>
-          <Button id="loginSubmit" type="submit">
+          <Button id="loginSubmit" type="submit" style={{textTransform: 'uppercase', fontSize: '12px', fontWeight: '700', textAlign: 'center', backgroundColor: 'inherit', border: '1px solid #1BA098', borderRadius: '100px'}}>
             Login
           </Button>
         </Form>

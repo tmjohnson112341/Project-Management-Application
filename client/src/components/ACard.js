@@ -1,13 +1,13 @@
 import React from 'react'
 import styles from '../styles/ACard.css'
 
-const ACard = (props) => {
+const ACard = ({name, date, description}) => {
   return (
     <div className="card">
         <div className="card-body">
-            <h1 className="name">{props.name}</h1>
-            <h1 className="date">{props.date}</h1>
-            <p className="description">{props.description}</p>
+            <h1 className="name">{name}</h1>
+            <h1 className="date">{date}</h1>
+            <p className="description">{description}</p>
         </div>
     </div>
   )

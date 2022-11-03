@@ -15,7 +15,7 @@ const Login = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3001/users')
+      const response = await fetch('http://localhost:8080/user',{mode:"cors"})
       const newData = await response.json();
       setUserData(newData);
     };
@@ -24,8 +24,8 @@ const Login = () => {
 
   let handleChange = (e) => {
     const userValue = e.target.value;
-    const companyData = userData.filter((user) => user.username === userValue).map(item => item.company);
-    const teamData = userData.filter((user) => user.username === userValue).map(item => item.team);
+    const companyData = userData.filter((user) => user.username === userValue).map(item => item.company.id);
+    const teamData = userData.filter((user) => user.username === userValue).map(item => item.team.id);
     setCompany(
         companyData
     )

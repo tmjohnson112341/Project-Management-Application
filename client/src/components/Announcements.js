@@ -2,44 +2,39 @@ import React from 'react'
 import ACard from './ACard'
 import NavBar from './NavBar'
 import { useState, useEffect } from 'react'
-import fetchUserData from './Login'
-
-const url = `http://localhost:8080/announcements/company/${companyId}`
-
-
 
 const Announcements = () => {
-  const [company, setCompany] = useState(JSON.parse(localStorage.getItem("company")));
   const [announcementData, setAnnouncementData] = useState({});
-  const [name, setName] = useState();
-  const [date, setDate] = useState();
-  const [description, setDescription] = useState({description: "Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum"});
 
+  const companyID = JSON.parse(localStorage.getItem("companyID"))
 
-  const loadAnnouncements = async (id) => {
-    const response = await fetchUserData(`${id}`);
-    const data = await response.json();
-    console.log("data: " + data);
-    return data;
+  const loadAnnouncements = async () => {
+    const response = await fetch(`http://localhost:8080/announcements/company/${companyID}`,{mode:"cors"});
+    let data = await response.json();
+    setAnnouncementData(data);
   }
 
+  console.log(announcementData);
   useEffect(() => {
-    const fetchData = async () => {
-      setAnnouncement(data);
-    }; 
-    fetchData();
+    loadAnnouncements();
   }, []);
+
 
   return (
     <>
     <NavBar />
     <div className="main-container">
       <h4 style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px', fontWeight: '400', color: '#1BA098'}}>Announcements</h4> 
-      <ACard 
-        name="Chris, CEO"
-        date="11/1/2022"
-        description="Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum Lorem ipsum our announcements go here! Our business has been going great and we are going to announce the winners of employee of the month! Lorem ipsum"
-      />
+      {announcementData.length > 0 ? announcementData.map(a => (
+          <div key={a.id}>
+           <ACard
+              name={a.user.firstName}
+              date={a.date}
+              description={a.message}
+            />
+          </div>
+          )
+        ):"No announcements to display!"}
     </div>
     </>
   )

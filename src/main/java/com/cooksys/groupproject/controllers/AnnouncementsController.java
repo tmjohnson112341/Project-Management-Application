@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,12 +22,12 @@ public class AnnouncementsController {
 
 	
     private final AnnouncementsService announcementsService;
-
+        @CrossOrigin
         @GetMapping
         public List<AnnouncementResponseDto> getAllAnnouncements () {
             return announcementsService.getAllAnnouncements();
         }
-
+        @CrossOrigin
         @GetMapping("/company/{id}")
         public List<AnnouncementResponseDto> getAllCompanyAnnouncements (@PathVariable Long id){
             return announcementsService.getAllCompanyAnnouncements(id);

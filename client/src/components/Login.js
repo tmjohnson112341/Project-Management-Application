@@ -15,7 +15,7 @@ const Login = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3001/users')
+      const response = await fetch('http://localhost:8080/user')
       const newData = await response.json();
       setUserData(newData);
     };

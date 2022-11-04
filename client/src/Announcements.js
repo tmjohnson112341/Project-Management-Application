@@ -22,7 +22,7 @@ const Announcements = () => {
 
   return (
     <>
-    <NavBar />
+    <Navbar />
     <div className="main-container">
       <h4 style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px', fontWeight: '400', color: '#1BA098'}}>Announcements</h4> 
       {announcementData.length > 0 ? announcementData.map(a => (

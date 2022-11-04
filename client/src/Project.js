@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import NavBar from './NavBar';
+import Navbar from './Navbar';
 
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const Project = () => {
 
     return (
         <div>
-            <NavBar />
+            <Navbar />
             <h4 className="card-title">Project Name</h4>
             <Card className="text-center">
                 <Card.Body>

@@ -18,7 +18,7 @@ const Project = () => {
         <div>
             <Navbar />
             <h4 className="card-title">Project Name</h4>
-            <Card className="text-center">
+            <Card className="text-center projectCard">
                 <Card.Body>
                     <Card.Title>{location.state.name}</Card.Title>
                     <Card.Text>

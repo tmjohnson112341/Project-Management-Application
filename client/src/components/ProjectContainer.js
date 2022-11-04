@@ -24,8 +24,9 @@ const ProjectContainer = () => {
     <>
     <Navbar />
     <div className="card-container">
-      <h4 className="card-title">{teamN}</h4>
-      <ul className="list-group list-group-flush" style={{ display: 'flex', paddingTop: '20vh',  width: '80rem' }}>
+      <h4 className="card-title" style={{marginBottom:"-10vh", marginTop:"2vh"}}>{teamN}</h4>
+      <div className="align">
+      <ul className="list-group list-group-flush" style={{ display: 'flex', paddingTop: '20vh',  width: '80rem' }} >
           {teamData.length > 0 ? teamData.map(projects => (
             <ProjectsList
               key={projects.id}
@@ -35,6 +36,7 @@ const ProjectContainer = () => {
             />
           )) :"No projects to display!"}
         </ul>
+       </div> 
     </div>
     </>
   );

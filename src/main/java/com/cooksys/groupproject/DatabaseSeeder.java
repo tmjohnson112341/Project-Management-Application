@@ -74,23 +74,77 @@ public class DatabaseSeeder implements CommandLineRunner{
         //PROJECTS
         Project project1= new Project();
         project1.setName("Project One");
-        project1.setDescription("World Domination");
+        project1.setDescription("Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit");
         project1.setActive(true);
         project1.setTeam(team1);
         
         Project project2= new Project();
         project2.setName("Project Two");
-        project2.setDescription("Top Secret");
+        project2.setDescription("adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et");
         project2.setActive(true);
         project2.setTeam(team2);
         
         Project project3= new Project();
         project3.setName("Project Three");
-        project3.setDescription("Y2k");
+        project3.setDescription("magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam");
         project3.setActive(false);
         project3.setTeam(team3);
         
-        projectRepository.saveAllAndFlush(Arrays.asList(project1, project2, project3));
+        Project project4= new Project();
+        project4.setName("Project Four");
+        project4.setDescription("beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit");
+        project4.setActive(true);
+        project4.setTeam(team1);
+        
+        Project project5= new Project();
+        project5.setName("Project Five");
+        project5.setDescription("sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa");
+        project5.setActive(true);
+        project5.setTeam(team2);
+        
+        Project project6= new Project();
+        project6.setName("Project Six");
+        project6.setDescription("dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam");
+        project6.setActive(false);
+        project6.setTeam(team3);
+        
+        Project project7= new Project();
+        project7.setName("Project Seve");
+        project7.setDescription("Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit");
+        project7.setActive(true);
+        project7.setTeam(team1);
+        
+        Project project8= new Project();
+        project8.setName("Project Eight");
+        project8.setDescription("adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et");
+        project8.setActive(true);
+        project8.setTeam(team2);
+        
+        Project project9= new Project();
+        project9.setName("Project Nine");
+        project9.setDescription("magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam");
+        project9.setActive(false);
+        project9.setTeam(team3);
+        
+        Project project10= new Project();
+        project10.setName("Project Ten");
+        project10.setDescription("beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit");
+        project10.setActive(true);
+        project10.setTeam(team1);
+        
+        Project project11= new Project();
+        project11.setName("Project Eleven");
+        project11.setDescription("sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa");
+        project11.setActive(true);
+        project11.setTeam(team2);
+        
+        Project project12= new Project();
+        project12.setName("Project Twelve");
+        project12.setDescription("dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam");
+        project12.setActive(false);
+        project12.setTeam(team3);
+        
+        projectRepository.saveAllAndFlush(Arrays.asList(project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12));
         
         
 		
@@ -224,9 +278,38 @@ public class DatabaseSeeder implements CommandLineRunner{
         a5.setMessage("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, ");
 		a5.setCompany(company1);
 		a5.setUser(user2);
-
 		
-		announcementsRepository.saveAllAndFlush(Arrays.asList(a1, a2, a3, a4, a5));
+        Announcements a6 = new Announcements();
+        a6.setTitle("Announcement 6");
+        a6.setMessage("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt");
+		a6.setCompany(company1);
+		a6.setUser(user4);
+		
+        Announcements a7 = new Announcements();
+        a7.setTitle("Announcement 7");
+        a7.setMessage("consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
+		a7.setCompany(company2);
+		a7.setUser(user1);
+		
+        Announcements a8 = new Announcements();
+        a8.setTitle("Announcement 8");
+        a8.setMessage("sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
+		a8.setCompany(company3);
+		a8.setUser(user2);
+		
+        Announcements a9 = new Announcements();
+        a9.setTitle("Announcement 9");
+        a9.setMessage("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+		a9.setCompany(company3);
+		a9.setUser(user5);
+		
+        Announcements a10 = new Announcements();
+        a10.setTitle("Announcement 10");
+        a10.setMessage("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, ");
+		a10.setCompany(company1);
+		a10.setUser(user2);
+		
+		announcementsRepository.saveAllAndFlush(Arrays.asList(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10));
 	}
 
 }

@@ -1,4 +1,4 @@
-import NavBar from './NavBar';
+import Navbar from './Navbar'
 import { useState, useEffect } from 'react'
 
 const Projects = () => {
@@ -20,12 +20,12 @@ const Projects = () => {
 
   return (
     <>
-    <NavBar />
+    <Navbar />
     <div className="card-container">
       <h4 className="card-title">Team name projects</h4>
-      <ul className="list-group list-group-flush" style={{ display: 'flex', paddingTop: '20vh',  width: '80rem' }}>
+      <ul className="list-group list-group-flush" style={{ display: 'flex', paddingTop: 'fit-content',  width: '80rem' }}>
         {teamData.length > 0 ? (teamData.map((team) => (
-          <li className="list-group-item" style={{ backgroundColor: 'inherit', color: 'white', border: 'solid beige' }}>{team.description}</li>
+          <li className="list-group-item" style={{ backgroundColor: 'inherit', color: 'white', borderBottom: '1px solid beige', paddingBottom: '10px' }}>{team.description}</li>
         ))):"No projects to display!"}
       </ul>
     </div>

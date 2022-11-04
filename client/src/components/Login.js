@@ -76,12 +76,12 @@ const Login = () => {
       </div>
         <Form className='login' onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Username</Form.Label>
+            <Form.Label style={{color: 'white'}}>Username</Form.Label>
             <Form.Control type="text" name="username" placeholder="Enter username" onChange={handleChange} />
             {renderErrorMessage("username")}
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Password</Form.Label>
+            <Form.Label style={{color: 'white'}}>Password</Form.Label>
             <Form.Control type="password" name="password" placeholder="Password" />
             {renderErrorMessage("password")}
           </Form.Group>

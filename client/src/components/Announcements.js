@@ -1,6 +1,6 @@
 import React from 'react'
 import ACard from './ACard'
-import NavBar from './NavBar'
+import Navbar from './Navbar'
 import { useState, useEffect } from 'react'
 
 const Announcements = () => {
@@ -22,9 +22,9 @@ const Announcements = () => {
 
   return (
     <>
-    <NavBar />
+    <Navbar />
     <div className="main-container">
-      <h4 style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px', fontWeight: '400', color: '#1BA098'}}>Announcements</h4> 
+      {/* <h4 style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px', fontWeight: '400', color: '#1BA098'}}>Announcements</h4>  */}
       {announcementData.length > 0 ? announcementData.map(a => (
           <div key={a.id}>
            <ACard

@@ -31,7 +31,7 @@ const Announcements = () => {
            <ACard
               name={a.user.firstName}
               date={a.date}
-              title={a.message}
+              title={a.title}
               description={a.message}
             />
           </div>

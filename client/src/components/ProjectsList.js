@@ -3,8 +3,6 @@ import Button from 'react-bootstrap/Button';
 
 import { useNavigate } from "react-router-dom";
 
-import Project from './Project';
-
 
 const ProjectsList = ({ name, description }) => {
 

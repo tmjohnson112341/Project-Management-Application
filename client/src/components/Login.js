@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import LogoImg from "../assets/logo.png";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -19,6 +20,7 @@ const Login = () => {
       const response = await fetch('http://localhost:8080/user',{mode:"cors"})
       const newData = await response.json();
       setUserData(newData);
+      console.log(userData);
     };
     fetchData();
   }, []);
@@ -79,6 +81,7 @@ const Login = () => {
         <h3>A Final App</h3>
       </div>
         <Form className='login' onSubmit={handleSubmit}>
+        <img src={LogoImg} alt="App Logo" className="logo" />
           <Form.Group className="mb-3">
             <Form.Label>Username</Form.Label>
             <Form.Control type="text" name="username" placeholder="Enter username" onChange={handleChange} />

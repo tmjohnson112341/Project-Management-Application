@@ -1,12 +1,11 @@
 import {LinkContainer} from 'react-router-bootstrap'
+import hamburgerMenu from "../assets/hamburgerMenu.svg";
 
 //CSS imports
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
-import { GiHamburgerMenu } from "react-icons/gi";
 
 
 const NavBar = () => {
@@ -16,11 +15,13 @@ const NavBar = () => {
             <Navbar expand={false} className="mb-3 navbar">
                 <Container fluid>
                     <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
-                    <Navbar.Toggle>Menu</Navbar.Toggle>
+                    <Navbar.Toggle>
+                    <img src={hamburgerMenu} alt="menu"/>
+                    </Navbar.Toggle>
                     <Navbar.Offcanvas placement="end">
                         <Offcanvas.Header closeButton>
                             <Offcanvas.Title>
-                                <GiHamburgerMenu />
+                                Menu
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>

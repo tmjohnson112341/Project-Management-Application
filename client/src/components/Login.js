@@ -92,7 +92,7 @@ const Login = () => {
             <Form.Control type="password" name="password" placeholder="Password" />
             {renderErrorMessage("password")}
           </Form.Group>
-          <Button id="loginSubmit" type="submit" style={{textTransform: 'uppercase', fontSize: '12px', fontWeight: '700', textAlign: 'center', backgroundColor: 'inherit', border: '1px solid #1BA098', borderRadius: '100px'}}>
+          <Button id="loginSubmit" type="submit" style={{textTransform: 'uppercase', fontSize: '12px', fontWeight: '700', textAlign: 'center', backgroundColor: 'inherit', border: '1px solid #1BA098', borderRadius: '100px', marginBottom: '5px'}}>
             Login
           </Button>
         </Form>

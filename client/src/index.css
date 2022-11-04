@@ -21,13 +21,22 @@ code {
     border-radius: 50%;
     background-color: #0d3a59;
     background-size: auto;
-    margin: 10px;
+    margin: 15px;
+}
+
+.navLogo{
+    width: 3rem;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: #214963;
 }
 
 
 .form-label{
   color: rgba(27, 160, 152, 0.75);
 }
+
 
 .navbar {
   border: 2px solid;
@@ -38,7 +47,7 @@ code {
 .login {
   position: relative;
   background-color: #051622;
-  height: 400px;
+  height: 425px;
   width: 500px;
   border: 5px solid;
   border-color: #DEB992;

@@ -1,5 +1,6 @@
 import {LinkContainer} from 'react-router-bootstrap'
 import hamburgerMenu from "../assets/hamburgerMenu.svg";
+import LogoImg from "../assets/logo.png";
 
 //CSS imports
 import Container from 'react-bootstrap/Container';
@@ -14,7 +15,7 @@ const NavBar = () => {
         <>
             <Navbar expand={false} className="mb-3 navbar">
                 <Container fluid>
-                    <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+                    <Navbar.Brand><img src={LogoImg} alt="logo" className="navLogo" /></Navbar.Brand>
                     <Navbar.Toggle>
                     <img src={hamburgerMenu} alt="menu"/>
                     </Navbar.Toggle>

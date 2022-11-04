@@ -1,6 +1,6 @@
 import React from 'react'
 import ACard from './ACard'
-import NavBar from './NavBar'
+import Navbar from './Navbar'
 import { useState, useEffect } from 'react'
 
 const Announcements = () => {

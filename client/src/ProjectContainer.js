@@ -1,4 +1,4 @@
-import NavBar from './NavBar';
+import Navbar from './Navbar';
 import { useState, useEffect } from 'react'
 import ProjectsList from './ProjectsList';
 
@@ -22,7 +22,7 @@ const ProjectContainer = () => {
  
   return (
     <>
-    <NavBar />
+    <Navbar />
     <div className="card-container">
       <h4 className="card-title">{teamN}</h4>
       <ul className="list-group list-group-flush" style={{ display: 'flex', paddingTop: '20vh',  width: '80rem' }}>

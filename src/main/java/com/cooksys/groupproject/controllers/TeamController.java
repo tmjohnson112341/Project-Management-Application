@@ -14,7 +14,6 @@ import java.util.List;
 public class TeamController {
 
     private final TeamService teamService;
-    @CrossOrigin
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<TeamResponseDto> getTeams() {

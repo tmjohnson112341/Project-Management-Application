@@ -11,7 +11,7 @@ public class AnnouncementResponseDto {
 	
 	private Long id;
 	
-	private java.sql.Date date;
+	private Timestamp date;
 	
     private String title;
 

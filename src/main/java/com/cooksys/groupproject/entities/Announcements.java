@@ -25,7 +25,7 @@ public class Announcements {
 	private Long id;
 	
 	@CreationTimestamp
-    private java.sql.Date date; 
+    private Timestamp date; 
 	
 	private String title;
 	

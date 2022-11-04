@@ -16,7 +16,7 @@ const ProjectsList = ({ name, description }) => {
 
   return (
     <li>
-      <Card className="text-center">
+      <Card className="text-center projectList">
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>

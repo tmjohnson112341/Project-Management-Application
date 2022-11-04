@@ -25,16 +25,19 @@ const Announcements = () => {
     <Navbar />
     <div className="main-container">
       <h4 style={{display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px', fontWeight: '400', color: '#1BA098'}}>Announcements</h4> 
+      <div className='announcements'>
       {announcementData.length > 0 ? announcementData.map(a => (
           <div key={a.id}>
            <ACard
               name={a.user.firstName}
               date={a.date}
+              title={a.message}
               description={a.message}
             />
           </div>
           )
         ):"No announcements to display!"}
+    </div>
     </div>
     </>
   )

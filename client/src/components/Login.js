@@ -5,12 +5,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const Login = () => {
-
   const [userData, setUserData] = useState([]);
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [company, setCompany] = useState();
-  const [team, setTeam] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,8 +15,8 @@ const Login = () => {
       const response = await fetch('http://localhost:8080/user',{mode:"cors"})
       const newData = await response.json();
       setUserData(newData);
-    };
-    fetchData();
+    }; 
+    fetchUserData();
   }, []);
 
   let handleChange = (e) => {
@@ -56,10 +53,10 @@ const Login = () => {
         setErrorMessages({ name: "password", message: errors.password });
       } else {
         setIsSubmitted(true);
-        localStorage.setItem("companyID", JSON.stringify(company));
-        localStorage.setItem("teamID", JSON.stringify(team));
+        localStorage.setItem("user", JSON.stringify(userInfo));
+        // localStorage.setItem("companyId", JSON.stringify(company));
+        // localStorage.setItem("teamId", JSON.stringify(team));
         navigate("/home");
-
         
       }
     } else {

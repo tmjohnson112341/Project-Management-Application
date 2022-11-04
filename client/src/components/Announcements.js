@@ -2,11 +2,16 @@ import React from 'react'
 import ACard from './ACard'
 import Navbar from './Navbar'
 import { useState, useEffect } from 'react'
+import fetchUserData from './Login'
+
+const url = `http://localhost:8080/announcements/company/${companyId}`
+
 
 const Announcements = () => {
   const [announcementData, setAnnouncementData] = useState({});
 
-  const companyID = JSON.parse(localStorage.getItem("companyID"))
+    const companyID = JSON.parse(localStorage.getItem("companyID"))
+
 
   const loadAnnouncements = async () => {
     const response = await fetch(`http://localhost:8080/announcements/company/${companyID}`,{mode:"cors"});

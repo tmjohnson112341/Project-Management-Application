@@ -21,11 +21,15 @@ The Homepage has the following features:
 
 - The list of announcements specific to the company of the user.
 
+
+
 ![Announcements](ProjManAssets/ProjManAnnouncements.PNG)
 
 ### Side Bar:
 
 - If you click on the hamburger on the top right corner it will deploy the side navigation menu.
+
+
 
 ![SideNav](ProjManAssets/ProjManAnnouncementsSideNav.PNG)
 
@@ -34,6 +38,8 @@ The Homepage has the following features:
 - The user can access the specific projects that are assigned to their team.
 - If the user clicks on the Review button they can access the more detailed view of that particular project.
 
+
+
 ![Projects](ProjManAssets/ProjManProjects.PNG)
 
 ### Project Page:
@@ -41,11 +47,15 @@ The Homepage has the following features:
 - The user can view the more detailed verson of the project they've clicked on.
 - The back button returns them to the projects page.
 
+
+
 ![Projects](ProjManAssets/ProjManProject.PNG)
 
 ---
 
 ## ERD
+
+
 
 ![Final ERD](https://user-images.githubusercontent.com/32781877/149406364-2d2fe6a6-f7c9-419c-80e7-7be1a2596f85.png)
 
